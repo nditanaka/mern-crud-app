@@ -1,5 +1,4 @@
 import React, {useState} from 'react'
-// import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 
 
@@ -44,7 +43,5 @@ const MainNavigation = (props) => {
         </>
   )
 }
-
-// MainNavigation.propTypes = {}
 
 export default MainNavigation
