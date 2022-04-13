@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import UserItem from './UserItem'
 import './UsersList.css'
@@ -11,7 +12,7 @@ const UsersList = (props) => {
             </div>
         )
     }
-    return <ul>
+    return <ul className='users-list'>
         {props.items.map(user => {
             return <UserItem
                 key={user.id}
@@ -25,3 +26,10 @@ const UsersList = (props) => {
 }
 
 export default UsersList
+
+UsersList.propTypes = {
+    name: PropTypes.string,
+    image: PropTypes.string,
+    placeCount: PropTypes.number,
+    items: PropTypes.array
+}
