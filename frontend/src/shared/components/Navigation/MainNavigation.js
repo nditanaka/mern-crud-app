@@ -9,7 +9,7 @@ import SideDrawer from './SideDrawer'
 import Backdrop from '../UIElements/Backdrop'
 
 
-const MainNavigation = (props) => {
+const MainNavigation = () => {
     const [drawerIsOpen, setDrawerIsOpen] = useState(false);
 
     const openDrawerHandler = () => {
@@ -21,7 +21,7 @@ const MainNavigation = (props) => {
     }
     return (
         <>
-            {drawerIsOpen && <Backdrop onClick={closeDrawerHandler}/>}
+            {drawerIsOpen ? <Backdrop onClick={closeDrawerHandler}/> : null}
             {<SideDrawer show={drawerIsOpen} onClick={closeDrawerHandler}>
             <nav className='main-navigation__drawer-nav'>
                 <NavLinks />
