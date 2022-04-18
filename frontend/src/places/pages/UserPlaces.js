@@ -11,8 +11,8 @@ const DUMMY_PLACES = [
         imageUrl: 'https://www.zimbabweyp.com/img/zw/h/1610726039-60-reserve-bank-of-zimbabwe.jpg',
         address: 'New Reserve Bank Tower, Harare, Zimbabwe',
         location: {
-            lat: 17.8259,
-            lng: 31.0492
+            lat: -17.824858,
+            lng: 31.053028
         },
         creator:'u1'
     },
@@ -23,8 +23,8 @@ const DUMMY_PLACES = [
         imageUrl: 'https://www.worldatlas.com/r/w1200/upload/c9/32/8c/untitled-design-387.jpg',
         address: 'Monomotapa Building, Samora Machel Avenue, Harare, Zimbabwe',
         location: {
-            lat: 49,
-            lng: -17
+            lat: -17.824858,
+            lng: 31.053028
         },
         creator:'u2'
     }
