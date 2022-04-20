@@ -1,5 +1,6 @@
-import React, {useState} from 'react'
+import React, {useState, useContext} from 'react'
 
+import { AuthContext } from '../../shared/context/auth-context';
 import Card from '../../shared/components/UIElements/Card';
 import { useForm } from '../../shared/hooks/form-hook';
 import Input from '../../shared/components/FormElements/Input';
@@ -12,6 +13,7 @@ import {
 import './Auth.css'
 
 const Auth = () => {
+    const auth = useContext(AuthContext)
     const [isLogin, setIsLogin] = useState(true)
 
     const [formState, inputHandler, setFormData] = useForm({
@@ -44,7 +46,8 @@ const Auth = () => {
     }
       const authSubmitHandler = event => {
         event.preventDefault();
-        console.log(formState.inputs); // send this to the backend!
+          console.log(formState.inputs); // send this to the backend!
+          auth.login()
       };
   return (
       <Card className='authentication'>
