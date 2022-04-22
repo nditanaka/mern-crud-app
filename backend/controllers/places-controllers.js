@@ -2,7 +2,7 @@ const uuid = require('uuid/v4')
 
 const HttpError = require('../models/http-error')
 
-const DUMMY_PLACES = [
+let DUMMY_PLACES = [
     {
         id: 'p1',
         title: 'ZB Life Towers',
@@ -70,7 +70,12 @@ const updatePlace = (req, res, next) => {
 
 }
 
-const deletePlaceBy = (req, res, next) => {
+const deletePlace = (req, res, next) => {
+    const placeId = req.params.pid
+    const deleted = DUMMY_PLACES.filter(p => p.id === placeId)
+    DUMMY_PLACES = DUMMY_PLACES.filter(p => p === deleted)
+
+    res.status(200).json({ deleted: deleted })
     
 }
 
@@ -78,4 +83,4 @@ exports.getPlaceById = getPlaceById
 exports.getPlaceByUserId = getPlaceByUserId
 exports.createPlace = createPlace
 exports.updatePlace = updatePlace
-// exports.deletePlace = deletePlace
+exports.deletePlace = deletePlace
