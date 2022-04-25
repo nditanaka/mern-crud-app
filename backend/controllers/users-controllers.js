@@ -2,10 +2,10 @@ const uuid = require('uuid/v4');
 
 const HttpError = require('../models/http-error');
 
-const DUMMY_USERS = [
+let DUMMY_USERS = [
   {
     id: 'u1',
-    name: 'Max Schwarz',
+    name: 'Tanaka C',
     email: 'test@test.com',
     password: 'testers'
   }
@@ -22,7 +22,7 @@ const signup = (req, res, next) => {
   if (hasUser) {
     throw new HttpError('Could not create user, email already exists.', 422);
   }
-
+  console.log('signup ->',name, email, password)
   const createdUser = {
     id: uuid(),
     name,
@@ -37,6 +37,8 @@ const signup = (req, res, next) => {
 
 const login = (req, res, next) => {
   const { email, password } = req.body;
+
+  console.log('login ->',email, password)
 
   const identifiedUser = DUMMY_USERS.find(u => u.email === email);
   if (!identifiedUser || identifiedUser.password !== password) {
