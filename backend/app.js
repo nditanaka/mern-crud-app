@@ -1,4 +1,6 @@
 const express = require('express')
+const mongoose = require('mongoose')
+require('dotenv').config();
 
 const HttpError = require('./models/http-error')
 const placesRoutes = require('./routes/places-routes')
@@ -27,4 +29,12 @@ app.use((error, req, res, next) => {
     res.json({message: error.message || 'An unknown error occured!'})
 })
 
-app.listen(5000)
+mongoose
+    .connect(process.env.URL)
+    .then(() => {
+        app.listen(5000) // start connection if backend server connection is successful
+    })
+    .catch(error => {
+        console.log(error)
+    })
+
